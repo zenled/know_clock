@@ -1,0 +1,21 @@
+name: source_local
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  # package
+  common:
+    path: ../common
+  domain:
+    path: ../domain
+  # flutter
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

@@ -7,6 +7,18 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  # package
+  common:
+    path: package/common
+  domain:
+    path: package/domain
+  presentation:
+    path: package/presentation
+  source_local:
+    path: package/source_local
+  ui:
+    path: package/ui
+  # flutter
   flutter:
     sdk: flutter
 
