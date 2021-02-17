@@ -11,6 +11,10 @@ class Time {
   static const minSecond = 0;
   static const maxSecond = 59;
 
+  static const hoursInDay = 24;
+  static const minutesInHour = 60;
+  static const secondsInMinute = 60;
+
   Time([this.hour = 0, this.minute = 0, this.second = 0]) {
     _throwIfInvalidConstructorArguments(hour, minute, second);
   }
@@ -19,10 +23,21 @@ class Time {
   final int minute;
   final int second;
 
-  Time add({int hour: 0}) {
-    final newHour = (this.hour + hour) % (maxHour + 1);
+  Time add({int hour: 0, int minute: 0, int second: 0}) {
+    final calculatedSecond = this.second + second;
+    final newSecond = calculatedSecond % secondsInMinute;
+    final secondOverflow = (calculatedSecond ~/ secondsInMinute) +
+        (calculatedSecond.isNegative ? -1 : 0);
 
-    return Time(newHour, minute, second);
+    final calculatedMinute = this.minute + minute + secondOverflow;
+    final newMinute = calculatedMinute % minutesInHour;
+    final minuteOverflow = (calculatedMinute ~/ minutesInHour) +
+        (calculatedMinute.isNegative ? -1 : 0);
+
+    final hourChange = this.hour + hour + minuteOverflow;
+    final newHour = hourChange % hoursInDay;
+
+    return Time(newHour, newMinute, newSecond);
   }
 
   @override
@@ -43,6 +58,14 @@ class Time {
     final mm = minute.toString().padLeft(2, '0');
     final ss = second.toString().padLeft(2, '0');
     return 'Time{$hh:$mm:$ss}';
+  }
+
+  operator +(Time other) {
+    return add(hour: other.hour, minute: other.minute, second: other.second);
+  }
+
+  operator -(Time other) {
+    return add(hour: -other.hour, minute: -other.minute, second: -other.second);
   }
 
   static bool isHourValid(int hour) {
