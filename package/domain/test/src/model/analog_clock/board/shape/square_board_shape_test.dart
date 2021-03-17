@@ -7,11 +7,6 @@ void main() {
     expect(shape.toString(), 'SquareBoardShape{radius: 1.0}');
   });
 
-  test('has .copyWith', () {
-    final shape = SquareBoardShape(radius: 1);
-    expect(shape.copyWith(radius: 2), SquareBoardShape(radius: 2));
-  });
-
   test('throws argument error if radius is invalid', () {
     expect(() => SquareBoardShape(radius: -1), throwsArgumentError);
     expect(() => SquareBoardShape(radius: 101), throwsArgumentError);

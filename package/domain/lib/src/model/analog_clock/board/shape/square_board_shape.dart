@@ -1,22 +1,14 @@
 import 'package:domain/src/model/analog_clock/board/shape/board_shape.dart';
 
-class SquareBoardShape implements BoardShape {
+class SquareBoardShape extends BoardShape {
   static const minRadius = 0.0;
   static const maxRadius = 100.0;
 
-  SquareBoardShape({
-    required this.radius,
-  }) {
+  SquareBoardShape({required this.radius}) {
     _throwIfInvalidRadius(radius);
   }
 
   final double radius;
-
-  SquareBoardShape copyWith({double? radius}) {
-    return SquareBoardShape(
-      radius: radius ?? this.radius,
-    );
-  }
 
   @override
   bool operator ==(Object other) =>
