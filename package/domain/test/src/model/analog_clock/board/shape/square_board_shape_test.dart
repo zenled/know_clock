@@ -7,7 +7,7 @@ void main() {
     expect(shape.toString(), 'SquareBoardShape{radius: 1.0}');
   });
 
-  test('throws argument error if radius is invalid', () {
+  test('throws if radius is invalid', () {
     expect(() => SquareBoardShape(radius: -1), throwsArgumentError);
     expect(() => SquareBoardShape(radius: 101), throwsArgumentError);
   });
