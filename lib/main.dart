@@ -1,18 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ui/ui.dart';
 
-void main() {
-  runApp(MyApp());
-}
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('know_clock'),
-        ),
-      ),
-    );
-  }
+
+  runApp(KnowClockApp());
 }
