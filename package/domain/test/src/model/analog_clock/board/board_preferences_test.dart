@@ -3,15 +3,10 @@ import 'package:domain/src/model/analog_clock/board/board_preferences.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('calling .toString produces a readable output', () {
+  test('has readable .toString', () {
     final boardFactory = _BoardPreferencesFactory()..isVisible = true;
     final board = boardFactory.build();
     expect(board.toString(), 'BoardPreferences{isVisible: true, ...}');
-  });
-
-  test('has .copyWith', () {
-    final board = _BoardPreferencesFactory().build();
-    expect(board.copyWith(), board);
   });
 }
 
