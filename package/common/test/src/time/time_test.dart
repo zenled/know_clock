@@ -6,7 +6,7 @@ void main() {
     expect(Time(), Time(0, 0, 0));
   });
 
-  test('calling .toString produces a readable output', () {
+  test('has readable .toString', () {
     expect(Time(1, 2, 3).toString(), 'Time{01:02:03}');
   });
 

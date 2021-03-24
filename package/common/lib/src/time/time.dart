@@ -68,6 +68,18 @@ class Time {
     return add(hour: -other.hour, minute: -other.minute, second: -other.second);
   }
 
+  void _throwIfInvalidConstructorArguments(int hour, int minute, second) {
+    if (!isHourValid(hour)) {
+      throw ArgumentError.value(hour, 'hour');
+    }
+    if (!isMinuteValid(minute)) {
+      throw ArgumentError.value(minute, 'minute');
+    }
+    if (!isSecondValid(second)) {
+      throw ArgumentError.value(second, 'second');
+    }
+  }
+
   static bool isHourValid(int hour) {
     return (hour >= minHour) && (hour <= maxHour);
   }
@@ -78,18 +90,5 @@ class Time {
 
   static bool isSecondValid(int second) {
     return (second >= minSecond) && (second <= maxSecond);
-  }
-
-  static void _throwIfInvalidConstructorArguments(
-      int hour, int minute, second) {
-    if (!isHourValid(hour)) {
-      throw ArgumentError.value(hour, 'hour');
-    }
-    if (!isMinuteValid(minute)) {
-      throw ArgumentError.value(minute, 'minute');
-    }
-    if (!isSecondValid(second)) {
-      throw ArgumentError.value(second, 'second');
-    }
   }
 }
