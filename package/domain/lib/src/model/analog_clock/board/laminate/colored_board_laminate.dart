@@ -1,10 +1,11 @@
 import 'package:domain/domain.dart';
 import 'package:domain/src/model/analog_clock/board/laminate/board_laminate.dart';
+import 'package:domain/src/model/styling/color.dart';
 
 class ColoredBoardLaminate extends BoardLaminate {
-  ColoredBoardLaminate({required this.color});
+  ColoredBoardLaminate(this.color);
 
-  final ComponentColor color;
+  final Color color;
 
   @override
   bool operator ==(Object other) =>

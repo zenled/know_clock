@@ -13,8 +13,7 @@ void main() {
 class _BoardPreferencesFactory {
   bool isVisible = true;
   BoardShape shape = CircleBoardShape();
-  BoardLaminate laminate =
-      ColoredBoardLaminate(color: ComponentColor(0xFFFFFF));
+  BoardLaminate laminate = ColoredBoardLaminate(Color(0xFFFFFF));
 
   BoardPreferences build() {
     return BoardPreferences(

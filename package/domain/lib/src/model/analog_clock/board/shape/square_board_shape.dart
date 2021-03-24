@@ -5,7 +5,7 @@ class SquareBoardShape extends BoardShape {
   static const maxRadius = 100.0;
 
   SquareBoardShape({required this.radius}) {
-    _throwIfInvalidRadius(radius);
+    _throwIfInvalidConstructorArgument(radius);
   }
 
   final double radius;
@@ -25,7 +25,7 @@ class SquareBoardShape extends BoardShape {
     return 'SquareBoardShape{radius: $radius}';
   }
 
-  void _throwIfInvalidRadius(double radius) {
+  void _throwIfInvalidConstructorArgument(double radius) {
     if (!_isRadiusValid(radius)) {
       throw ArgumentError.value(radius, 'radius');
     }
