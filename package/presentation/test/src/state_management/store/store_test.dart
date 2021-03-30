@@ -31,27 +31,27 @@ void main() {
     });
   });
 
-  group('.isMounted tests', () {
-    test('when instantiated, .isMounted is false', () {
-      expect(tester.isMounted, false);
+  group('.isOperational tests', () {
+    test('when instantiated, .isOperational is false', () {
+      expect(tester.isOperational, false);
     });
 
-    test('after initializing, .isMounted it true', () {
+    test('after initializing, .isOperational it true', () {
       tester.initStore();
-      expect(tester.isMounted, true);
+      expect(tester.isOperational, true);
     });
 
-    test('after disposing, .isMounted is false', () {
+    test('after disposing, .isOperational is false', () {
       tester.initStore();
       tester.disposeStore();
-      expect(tester.isMounted, false);
+      expect(tester.isOperational, false);
     });
   });
 
-  group('.ifMounted tests', () {
-    test('.ifMounted callback is executed only if store is mounted', () {
+  group('.ifOperational tests', () {
+    test('callback is executed only if store is operational', () {
       bool wasExecuted;
-      final maybeExecute = () => tester.ifMounted(() {
+      final maybeExecute = () => tester.ifOperational(() {
             wasExecuted = true;
           });
 

@@ -5,7 +5,7 @@ abstract class Store {
 
   @protected
   @visibleForTesting
-  bool get isMounted => _lifecycle == _Lifecycle.operational;
+  bool get isOperational => _lifecycle == _Lifecycle.operational;
 
   @protected
   @mustCallSuper
@@ -35,8 +35,8 @@ abstract class Store {
 
   @protected
   @visibleForTesting
-  void ifMounted(void Function() callback) {
-    if (isMounted) {
+  void ifOperational(void Function() callback) {
+    if (isOperational) {
       callback();
     }
   }

@@ -11,7 +11,7 @@ abstract class SingleUiStore<T> extends Store {
   }
 
   set ui(T value) {
-    ifMounted(() {
+    ifOperational(() {
       _uiSubject.add(value);
     });
   }

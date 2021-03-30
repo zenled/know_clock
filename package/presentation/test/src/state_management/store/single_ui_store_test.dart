@@ -8,17 +8,17 @@ void main() {
     tester = _Tester();
   });
 
-  test('.outUi emits only if Store is mounted', () {
+  test('.outUi emits only if Store is operational', () {
     tester.ui = 'emitted from instantiated';
     expect(tester.outUi.valueWrapper, isNull);
 
     tester.initStore();
-    tester.ui = 'emitted form initialized';
-    expect(tester.outUi.valueWrapper!.value, 'emitted form initialized');
+    tester.ui = 'emitted form operational';
+    expect(tester.outUi.valueWrapper!.value, 'emitted form operational');
 
     tester.disposeStore();
     tester.ui = 'emitted from disposed';
-    expect(tester.outUi.valueWrapper!.value, 'emitted form initialized');
+    expect(tester.outUi.valueWrapper!.value, 'emitted form operational');
   });
 }
 
